@@ -11,6 +11,11 @@ class PagesController extends Controller
         return view('welcome');
     }
 
+    public function fnEstDetalle($id){
+        $xDetAlumnos = Estudiante::findOrFail($id);
+        return view('Estudiante.pagDetalle', compact('xDetAlumnos'));
+    }
+
     public function fnLista(){
         $xAlumnos = Estudiante::all();
         return view('pagLista', compact('xAlumnos'));

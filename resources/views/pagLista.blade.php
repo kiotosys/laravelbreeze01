@@ -5,8 +5,33 @@
 @endsection
 
 @section('seccion')
-  <h3>Lista</h3>
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+
   @foreach($xAlumnos as $item)
-    <p> {{ $item ->id }} --- {{ $item ->nomEst }} </p>
+  
+  <tbody>
+    <tr>
+      <th scope="row">{{ $item ->id }}</th>
+      <td>{{ $item ->codEst }}</td>
+      <td>
+        <a href="{{ route('Estudiante.xDetalle', $item->id ) }}">
+          {{ $item ->apeEst }}, {{ $item ->nomEst }}
+        </a>
+      </td>
+      <td> A    ----     x </td>
+    </tr>
+  </tbody>
+
   @endforeach
+
+</table>
+ 
 @endsection

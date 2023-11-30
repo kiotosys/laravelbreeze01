@@ -7,6 +7,8 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/',                  [PagesController::class, 'fnIndex']) -> name('xInicio');
 Route::get('/lista',             [PagesController::class, 'fnLista']) -> name('xLista');
+Route::get('/detalle/{id}',      [PagesController::class, 'fnEstDetalle']) -> name('Estudiante.xDetalle');
+
 Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) ->where('numero', '[0-9]+') -> name('xGaleria');
 
 
