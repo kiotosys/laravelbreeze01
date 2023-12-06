@@ -12,9 +12,7 @@ class PagesController extends Controller
     }
 
     public function fnRegistrar(Request $request) {
-
-        //return $request;        //
-
+        //return $request;
         $request -> validate([
             'codEst'=>'required',
             'nomEst'=>'required',

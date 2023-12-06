@@ -28,29 +28,29 @@
       </div>
     @enderror
 
-    <input type="text" name="codEst" placeholder="Código" class="form-control mb-2">
-    <input type="text" name="nomEst" placeholder="Nombres" class="form-control mb-2">
-    <input type="text" name="apeEst" placeholder="Apellidos" class="form-control mb-2">
-    <input type="date" name="fnaEst" placeholder="Fecha Nac." class="form-control mb-2">
+    <input type="text" name="codEst" value="{{ old('codEst') }}" placeholder="Código" class="form-control mb-2">
+    <input type="text" name="nomEst" value="{{ old('nomEst') }}" placeholder="Nombres" class="form-control mb-2">
+    <input type="text" name="apeEst" value="{{ old('apeEst') }}" placeholder="Apellidos" class="form-control mb-2">
+    <input type="date" name="fnaEst" value="{{ old('fnaEst') }}" placeholder="Fecha Nac." class="form-control mb-2">
 
     <select name="turMat" class="form-control mb-2">
-      <option name="">Seleccione...</option>
-      <option name="1">Turno Día</option>
-      <option name="2">Turno Noche</option>
-      <option name="3">Turno Tarde</option>
+      <option value="">Seleccione...</option>
+      <option value="1">Turno Día</option>
+      <option value="2">Turno Noche</option>
+      <option value="3">Turno Tarde</option>
     </select>
 
     <select name="semMat" class="form-control mb-2">
       <option name="">Seleccione...</option>
         @for($i=1; $i < 7; $i++)
-          <option name="{{$i}}">Semestre {{$i}}</option>
+          <option value="{{$i}}">Semestre {{$i}}</option>
         @endfor
     </select>
 
     <select name="estMat" class="form-control mb-2">
-      <option name="">Seleccione...</option>
-      <option name="0">Inactivo</option>
-      <option name="1">Activo</option>
+      <option value="">Seleccione...</option>
+      <option value="0">Inactivo</option>
+      <option value="1">Activo</option>
     </select>
 
     <button class="btn btn-primary btn-block" type="submit">Agregar</button>
@@ -81,7 +81,7 @@
             {{ $item ->apeEst }}, {{ $item ->nomEst }}
           </a>
         </td>
-        <td> A    ----     x </td>
+        <td> A    ----     x        </td>
       </tr>
     </tbody>
 
