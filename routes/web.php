@@ -4,30 +4,27 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 
-
+//PORTADA
 Route::get('/',  [PagesController::class, 'fnIndex']) -> name('xInicio');
+
+//CREATE
 Route::post('/', [PagesController::class, 'fnRegistrar']) -> name('Estudiante.xRegistrar');
 
-Route::get('/lista',             [PagesController::class, 'fnLista']) -> name('xLista');
-Route::get('/detalle/{id}',      [PagesController::class, 'fnEstDetalle']) -> name('Estudiante.xDetalle');
+//READ
+Route::get('/lista',        [PagesController::class, 'fnLista']) -> name('xLista');
+Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle']) -> name('Estudiante.xDetalle');
+
+//UPDATE
+Route::get('/actualizar/{id}', [PagesController::class, 'fnEstActualizar']) -> name('Estudiante.xActualizar');
+Route::put('/actualizar/{id}', [PagesController::class, 'fnUpdate']) -> name('Estudiante.xUpdate');
+
+//DELETE
+Route::delete('/eliminar/{id}', [PagesController::class, 'fnEliminar']) -> name('Estudiante.xEliminar');
+
+//Ejemplo de validar en RUTA
 Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) ->where('numero', '[0-9]+') -> name('xGaleria');
 
 
-
-
-//Route::view('/galeria', 'pagGaleria', ['valor'=>15]) -> name('xGaleria'); 
-
-/*
-Route::get('/lista', function () {
-    return view('pagLista');
-}) -> name('xLista');
-*/
-
-/*
-Route::get('/galeria/{num}', function ($num) {
-    return "Este es un saludo desde Laravel ".$num;
-}) -> where ('num', '[0-9]+');
-*/
 
 
 Route::get('/dashboard', function () {
@@ -47,10 +44,24 @@ require __DIR__.'/auth.php';
 Route::get('/', function () {
     return view('welcome');
 }) -> name('xInicio');
+*/
 
-
+/*
 Route::get('/saludo', function () {
     return "Este es un saludo desde Laravel";
 });
+*/
 
+//Route::view('/galeria', 'pagGaleria', ['valor'=>15]) -> name('xGaleria'); 
+
+/*
+Route::get('/lista', function () {
+    return view('pagLista');
+}) -> name('xLista');
+*/
+
+/*
+Route::get('/galeria/{num}', function ($num) {
+    return "Este es un saludo desde Laravel ".$num;
+}) -> where ('num', '[0-9]+');
 */

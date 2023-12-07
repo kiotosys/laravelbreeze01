@@ -21,7 +21,7 @@
         El código es requerido,
       </div>
     @enderror
- 
+
     @error('nomEst')
       <div class="alert alert-danger">
         El nombre es requerido,
@@ -81,7 +81,17 @@
             {{ $item ->apeEst }}, {{ $item ->nomEst }}
           </a>
         </td>
-        <td> A    ----     x        </td>
+        <td>
+          <form action="{{ route('Estudiante.xEliminar', $item->id) }}" method="post" class="d-inline">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-danger btn-sm">x</button>
+          </form>
+          
+          <a href="{{ route('Estudiante.xActualizar', $item->id ) }}" class="btn btn-warning btn-sm">
+            ...A 
+          </a>
+        </td>
       </tr>
     </tbody>
 
