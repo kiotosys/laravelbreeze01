@@ -9,17 +9,29 @@ Route::get('/',  [PagesController::class, 'fnIndex']) -> name('xInicio');
 
 //CREATE
 Route::post('/', [PagesController::class, 'fnRegistrar']) -> name('Estudiante.xRegistrar');
+Route::post('/', [PagesController::class, 'fnRegistrarSeg']) -> name('Estudiante.xRegistrarSeguimiento');
 
 //READ
 Route::get('/lista',        [PagesController::class, 'fnLista']) -> name('xLista');
 Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle']) -> name('Estudiante.xDetalle');
 
+Route::get('/seguimiento',     [PagesController::class, 'fnSeguimiento']) -> name('xListaSeguimiento');
+Route::get('/detalleseg/{id}', [PagesController::class, 'fnEstDetalleSeg']) -> name('Estudiante.xDetalleSeg');
+
+
 //UPDATE
 Route::get('/actualizar/{id}', [PagesController::class, 'fnEstActualizar']) -> name('Estudiante.xActualizar');
 Route::put('/actualizar/{id}', [PagesController::class, 'fnUpdate']) -> name('Estudiante.xUpdate');
 
+Route::get('/actualizarseg/{id}', [PagesController::class, 'fnEstActualizarSeg']) -> name('Estudiante.xActualizarSeg');
+Route::put('/actualizarseg/{id}', [PagesController::class, 'fnUpdateSeg']) -> name('Estudiante.xUpdateSeg');
+
+
 //DELETE
 Route::delete('/eliminar/{id}', [PagesController::class, 'fnEliminar']) -> name('Estudiante.xEliminar');
+
+Route::delete('/eliminarseg/{id}', [PagesController::class, 'fnEliminarSeg']) -> name('Estudiante.xEliminarSeg');
+
 
 //Ejemplo de validar en RUTA
 Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) ->where('numero', '[0-9]+') -> name('xGaleria');
